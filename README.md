@@ -1,5 +1,7 @@
 # jQuery 정리 모음
 
+### jQuery 예시 이미지
+
 ![image](https://user-images.githubusercontent.com/37132897/158531264-6056a017-1074-470c-8323-4f42ed03284e.png)
 
 

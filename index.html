@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <style>
+      .border {
+        border: 1px solid black;
+      }
+      #box {
+        width: 100px;
+        height: 100px;
+        opacity: 0.3;
+        background-color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>hello world</h1>
+    <p id="test">hello hello</p>
+    <ul>
+      <li>hello world</li>
+      <li>hello world</li>
+      <li>hello world</li>
+      <li>hello world</li>
+      <li>hello world</li>
+      <li>hello world</li>
+      <li>hello world</li>
+      <li>hello world</li>
+      <li>hello world</li>
+      <li>hello world</li>
+    </ul>
+
+    <input type="text" name="" id="userInput" />
+    <input type="text" name="" id="userInput2" />
+    <p id="userInputPrint"></p>
+    <button>눌러!</button>
+
+    <div class="wrapper">
+      <h1 class="title">TITLE</h1>
+      <ul class="items">
+        <li class="items">item 1</li>
+        <li class="items">item 2</li>
+      </ul>
+    </div>
+
+    <button type="button" id="btn_ani">클릭해주세요!</button>
+    <div id="box"></div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+
+    <script>
+      // jQuery 사용 예시 1 : jquery 필터
+      $("#test").html("<b>hello</b> world");
+      $("li").eq(2).css("color", "blue");
+      $("li:gt(4)").css("color", "red");
+      $("li:lt(2)").css("color", "green");
+      $("li:nth-child(2n)").css("color", "pink");
+
+      // jQuery 사용 예시 2 : 속성 값 변경
+      $("button").click(function () {
+        const value = $("#userInput").val();
+        $("#userInput2").val(value);
+        $("#userInputPrint").text(value);
+      });
+
+      // jQuery 사용 예시 3 : DOM 탐색
+      console.log(($("div").children()[0].innerText = "hello world"));
+      // jQuery 사용 예시 4 : DOM 편집
+      $("div").append("append 는 div 마지막 부분에 붙는다.");
+      $("div").prepend("prepend 는 div 처음 부분에 붙는다");
+      $("ul").after("<h2>ul 태그 밑에마다 끝, ul 안 아님 !</h2>");
+      $("ul").before("<h2>ul 태그 위에마다 시작, ul 안 아님 !</h2>");
+
+      // jQuery 사용 예시 5 : class 추가, 제거
+      $("ul").addClass("border");
+
+      // jQuery 사용 예시 6 : jQuery effect(효과)
+      $("ul").fadeOut(3000).fadeIn(3000);
+
+      // jQuery 사용 예시 7 : jQuery event(행동)
+      // 클릭 이벤트 hide -  누르면 숨겨진다.
+      $("div").click(function () {
+        $(this).hide();
+      });
+      // 클릭 이벤트 animate
+      $("#btn_ani").click(function () {
+        $("#box").animate(
+          {
+            width: "300px",
+            height: "300px",
+            opacity: 1
+          },
+          "slow"
+        );
+      });
+      // 클릭 이벤트 마우스 hover
+      $("#box").hover(
+        function () {
+          $(this).css("background-color", "yellow");
+        },
+        function () {
+          $(this).css("background-color", "blue");
+        }
+      );
+    </script>
+  </body>
+</html>
